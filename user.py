@@ -8,10 +8,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from websocket import WebSocketConnectionClosedException
 
 # 🌍 MongoDB connection (update this for Render)
-MONGO_URI = os.getenv(
-    "MONGO_URI",
-    "mongodb+srv://UserXts_db_user:6UOSD2hon4O9dnz5@cluster0.znfwoni.mongodb.net/?retryWrites=true&w=majority"
-)
+MONGO_URI = os.getenv("MONGO_URI")
 client = AsyncIOMotorClient(MONGO_URI)
 db = client["chatRoom"]["chatRoomUsers"]
 
@@ -98,3 +95,4 @@ def main(username):
 if __name__ == "__main__":
     username = asyncio.run(get_user())
     main(username)
+

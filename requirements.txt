@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+motor
+pymongo
+websocket-client
+typing-extensions
+python-dotenv
+python-multipart

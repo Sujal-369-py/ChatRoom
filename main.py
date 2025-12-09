@@ -6,6 +6,7 @@ import json
 import uvicorn
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+import os
 
 app = FastAPI()
 
@@ -22,7 +23,9 @@ def home():
     return FileResponse("frontend/index.html")
 
 # Mongo connection
-db = AsyncIOMotorClient("mongodb+srv://UserXts_db_user:6UOSD2hon4O9dnz5@cluster0.znfwoni.mongodb.net/")["chatRoom"]
+MONGO_URL = os.getenv("MONGO_URL")
+
+db = AsyncIOMotorClient(MONGO_URL)["chatRoom"]
 users = db["chatRoomUsers"]
 
 

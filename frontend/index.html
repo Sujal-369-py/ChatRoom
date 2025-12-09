@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat App</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script defer src="static/script.js"></script>
+</head>
+<body>
+
+<div class="auth-box" id="authBox">
+
+    <div class="tabs">
+        <button id="loginTab" class="active">Login</button>
+        <button id="signupTab">Signup</button>
+    </div>
+
+    <div class="form">
+        <div class="inputBox">
+            <label>Username</label>
+            <input id="username" type="text">
+        </div>
+
+        <div class="inputBox">
+            <label>Password</label>
+            <input id="password" type="password">
+        </div>
+
+        <button class="btn" id="actionBtn">Login</button>
+
+        <p id="msg"></p>
+    </div>
+</div>
+
+
+<div class="chat hidden" id="chat">
+    <div class="chatHeader">
+        <h3 id="chatTitle"></h3>
+    </div>
+
+    <div class="chatBody" id="messages"></div>
+
+    <div class="chatInput">
+        <input id="msgInput" type="text" placeholder="Type a message">
+        <button id="sendBtn">Send</button>
+    </div>
+</div>
+
+</body>
+</html>

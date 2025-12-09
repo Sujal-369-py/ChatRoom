@@ -1,0 +1,237 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    background:#141417;
+    color:#eaeaea;
+}
+
+/* ================================
+   AUTH CARD
+================================ */
+.auth-box{
+    width:92%;
+    max-width:350px;
+    margin:90px auto;
+    padding:28px;
+    background:#1f1f23;
+    border-radius:14px;
+    box-shadow:0 0 25px rgba(0,0,0,0.35);
+}
+
+/* Tabs */
+.tabs{
+    display:flex;
+    gap:8px;
+    margin-bottom:22px;
+}
+
+.tabs button{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#2b2b30;
+    color:#c7c7c7;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.2s;
+}
+
+.tabs .active{
+    background:#4d7cff;
+    color:white;
+    box-shadow:0 0 10px rgba(77,124,255,0.5);
+}
+
+/* Inputs */
+.inputBox{
+    margin:18px 0;
+}
+
+.inputBox label{
+    font-size:14px;
+    margin-bottom:6px;
+    display:block;
+    color:#b4b4b4;
+}
+
+.inputBox input{
+    width:100%;
+    padding:14px;
+    border:1px solid #3a3a3e;
+    border-radius:10px;
+    background:#18181b;
+    color:#f5f5f5;
+    transition:0.2s;
+}
+
+.inputBox input:focus{
+    border-color:#4d7cff;
+    box-shadow:0 0 6px rgba(77,124,255,0.4);
+}
+
+/* Buttons */
+.btn{
+    width:100%;
+    padding:14px;
+    margin-top:18px;
+    background:#4d7cff;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.btn:hover{
+    background:#6c90ff;
+    box-shadow:0 0 12px rgba(108,144,255,0.5);
+}
+
+/* Messages */
+#msg{
+    margin-top:14px;
+    text-align:center;
+    font-size:14px;
+}
+
+/* SUCCESS (blue) */
+.success{
+    color:#6ca8ff;
+}
+
+/* ERROR (red) */
+.error{
+    color:#ff6b6b;
+}
+
+/* ================================
+   CHAT AREA
+================================ */
+.hidden{ display:none; }
+
+.chat{
+    width:96%;
+    max-width:600px;
+    background:#1f1f23;
+    margin:35px auto;
+    border-radius:14px;
+    box-shadow:0 0 25px rgba(0,0,0,0.35);
+}
+
+.chatHeader{
+    padding:16px;
+    text-align:center;
+    background:#4d7cff;
+    border-radius:14px 14px 0 0;
+    color:white;
+    font-weight:600;
+    font-size:18px;
+}
+
+.chatBody{
+    height:58vh;
+    padding:14px;
+    overflow-y:auto;
+}
+
+/* Chat Message Bubble */
+.message{
+    padding:14px;
+    margin:14px 0;
+    background:#2b2b33;
+    border-left:5px solid #4d7cff;
+    border-radius:10px;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.username{
+    font-weight:700;
+    color:#8fb3ff;
+    display:block;
+    margin-bottom:4px;
+}
+
+.text{
+    color:#ffffff;
+}
+
+.system{
+    color:#ffa8a8;
+    font-style:italic;
+}
+
+/* Chat Input */
+.chatInput{
+    display:flex;
+    padding:12px;
+    border-top:1px solid #33333a;
+}
+
+.chatInput input{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#18181b;
+    color:#eaeaea;
+}
+
+.chatInput button{
+    padding:14px 20px;
+    margin-left:12px;
+    background:#4d7cff;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.chatInput button:hover{
+    background:#6c90ff;
+}
+
+/* Animation */
+@keyframes fadeIn{
+    from{ opacity:0; transform:translateY(6px); }
+    to{ opacity:1; transform:translateY(0); }
+}
+
+/* ================================
+   PHONE RESPONSIVE DESIGN
+================================ */
+@media(max-width: 480px){
+
+    body{
+        padding:0 6px;
+    }
+
+    .auth-box{
+        margin-top:40px;
+        padding:22px;
+    }
+
+    .chat{
+        margin-top:20px;
+    }
+
+    .chatBody{
+        height:62vh;
+    }
+
+    .chatInput button{
+        padding:14px 14px;
+    }
+
+    .tabs button{
+        padding:10px;
+        font-size:14px;
+    }
+}

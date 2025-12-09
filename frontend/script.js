@@ -1,12 +1,16 @@
 let socket = null;
 let currentUser = null;
 
+// AUTO-DETECT BASE URL
+const API_BASE = location.origin;  
+const WS_URL = (location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/ws";
+
 // -------------------------------
 // API CALLS: REGISTER + LOGIN
 // -------------------------------
 
 async function registerUser(username, password) {
-    const res = await fetch("http://localhost:8000/register", {
+    const res = await fetch(`${API_BASE}/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })
@@ -16,7 +20,7 @@ async function registerUser(username, password) {
 }
 
 async function loginUser(username, password) {
-    const res = await fetch("http://localhost:8000/login", {
+    const res = await fetch(`${API_BASE}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })
@@ -31,7 +35,7 @@ async function loginUser(username, password) {
 // -------------------------------
 
 function connectWebSocket(username) {
-    socket = new WebSocket("ws://localhost:8000/ws");
+    socket = new WebSocket(WS_URL);
 
     socket.onopen = () => {
         socket.send(JSON.stringify({ username }));
@@ -125,9 +129,7 @@ actionBtn.onclick = async () => {
         return;
     }
 
-    // ----------------------
     // SIGNUP
-    // ----------------------
     if (mode === "signup") {
         const res = await registerUser(u, p);
 
@@ -138,13 +140,11 @@ actionBtn.onclick = async () => {
         }
 
         msg.className = "success";
-        msg.innerText = res.msg; // "Account created"
+        msg.innerText = res.msg; 
         return;
     }
 
-    // ----------------------
     // LOGIN
-    // ----------------------
     if (mode === "login") {
         const res = await loginUser(u, p);
 
@@ -159,7 +159,6 @@ actionBtn.onclick = async () => {
 
         currentUser = u;
 
-        // show chat
         authBox.classList.add("hidden");
         chat.classList.remove("hidden");
         chatTitle.innerText = "Welcome " + u;
